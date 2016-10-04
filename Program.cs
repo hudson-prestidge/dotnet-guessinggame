@@ -6,10 +6,13 @@ namespace ConsoleApplication
     {
         public static void Main(string[] args)
         {
-            MainMenu();
+            bool displayMenu = true;
+            while(displayMenu){
+                displayMenu = MainMenu();
+            }
         }
 
-        private static void MainMenu() 
+        private static bool MainMenu() 
         {
             Console.WriteLine("Choose an option:");
             Console.WriteLine("1) Option 1");
@@ -18,12 +21,15 @@ namespace ConsoleApplication
             string result = Console.ReadLine();
             if(result == "1"){
                 PrintNumbers();
+                return true;
             } else if (result == "2"){
                 GuessingGame();
+                return true;
             } else if (result == "3"){
-
+                return false;
             } else {
                 Console.WriteLine("Invalid input");
+                return true;
             }
         }
 
