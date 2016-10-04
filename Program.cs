@@ -49,6 +49,23 @@ namespace ConsoleApplication
         private static void GuessingGame() {
             Console.Clear();
             Console.WriteLine("Guessing game!");
+            Random myRandom = new Random();
+            int randomNumber = myRandom.Next(1, 11);
+            int guesses = 0;
+            bool incorrect = true;
+            while(incorrect) {
+                Console.WriteLine("Pick a number between 1 and 10 inclusive:");
+                int guess = int.Parse(Console.ReadLine());
+                guesses++;
+                if(guess == randomNumber) {
+                    incorrect = false;
+                    Console.WriteLine("Correct! you took " + guesses + " guesses.");
+                } else if (guess < randomNumber) {
+                    Console.WriteLine("Incorrect, you guessed too low!");
+                } else if (guess > randomNumber) {
+                    Console.WriteLine("Incorrect, you guessed too high!");
+                }
+            }
             Console.ReadLine();
         }
     }
